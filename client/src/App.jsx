@@ -1,19 +1,24 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
-import NavBar from './components/NavBar';
-import AppRoutes from './components/AppRoutes';
+import React, { useState } from "react";
+import ProductList from "./features/products/ProductList";
+import ProductForm from "./features/products/ProductForm";
+import ProductDetails from "./features/products/ProductDetails";
 
-function App() {
+const App = () => {
+  const [editProduct, setEditProduct] = useState(null);
+
+  const refreshProducts = () => {
+    setEditProduct(null);
+  };
+
   return (
-    <Router>
-    <div className="app">
-      <h1>Giovanna shines!</h1>
-      <p>React on Rails</p>
-      <NavBar />
-      <AppRoutes />
+    <div>
+      <ProductForm
+        productToEdit={editProduct}
+        refreshProducts={refreshProducts}
+      />
+      <ProductList setEditProduct={setEditProduct} />
     </div>
-    </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;

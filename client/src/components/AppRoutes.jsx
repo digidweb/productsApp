@@ -1,13 +1,13 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import ProductsList from '../features/products/ProductsList';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import ProductsList from "../features/products/ProductList";
 
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<ProductsList />} />
-      <Route path="/products/:id" element={<ProductDetails />} />
-      <Route path="/new" element={<h1>Novo</h1>} />
+      <Route path="/api/v1/products" element={<ProductList />} />
+      <Route path="/api/v1//products/:id" element={<ProductDetails />} />
+      <Route path="/api/v1//products/new" element={<h1>Novo</h1>} />
     </Routes>
   );
 }
